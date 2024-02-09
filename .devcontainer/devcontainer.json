@@ -1,0 +1,26 @@
+{
+    "name": "Laravel Jetstream with PostgreSQL",
+    "image": "mcr.microsoft.com/vscode/devcontainers/php:0-8",
+
+    "extensions": [
+        "felixfbecker.php-debug",
+        "onecentlin.laravel-blade",
+        "junstyle.php-cs-fixer",
+        "editorconfig.editorconfig"
+    ],
+
+    "forwardPorts": [8000],
+
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+
+    "remoteUser": "vscode",
+
+    "workspaceMount": "source=${localWorkspaceFolder}/app,target=/workspace,type=bind,consistency=cached",
+
+    "runArgs": ["--mount", "type=bind,source=${env:HOME}/.ssh,target=/home/vscode/.ssh", "--mount", "type=bind,source=${env:HOME}/.gitconfig,target=/home/vscode/.gitconfig", "--mount", "type=bind,source=${env:HOME}/.netrc,target=/home/vscode/.netrc,readonly"]
+}
